@@ -1,0 +1,63 @@
+pluginManagement {
+    repositories {
+        **ARTIFACTORYREPOSITORY**
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+include ':launcher', ':unityLibrary'
+**INCLUDES**
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        **ARTIFACTORYREPOSITORY**
+        google()
+        mavenCentral()
+// Android Resolver Repos Start
+        def unityProjectPath = $/file:///**DIR_UNITYPROJECT**/$.replace("\\", "/")
+        maven {
+            url "https://dl.google.com/dl/android/maven2" // Assets/SkySDK/LauncherSDK/Editor/LauncherSdkDependencies.xml:23
+        }
+        maven {
+            url "https://repo.maven.apache.org/maven2" // Assets/SkySDK/LauncherSDK/Editor/LauncherSdkDependencies.xml:23
+        }
+        maven {
+            url "https://jfrog.anythinktech.com/artifactory/overseas_sdk" // Assets/SkySDK/LauncherSDK/Editor/LauncherSdkDependencies.xml:23
+        }
+        maven {
+            url "https://jfrog.anythinktech.com/artifactory/debugger" // Assets/SkySDK/LauncherSDK/Editor/LauncherSdkDependencies.xml:23
+        }
+        maven {
+            url "https://android-sdk.is.com/" // Assets/SkySDK/LauncherSDK/Editor/LauncherSdkDependencies.xml:23
+        }
+        maven {
+            url "https://artifact.bytedance.com/repository/pangle" // Assets/SkySDK/LauncherSDK/Editor/LauncherSdkDependencies.xml:23
+        }
+        maven {
+            url "https://cboost.jfrog.io/artifactory/chartboost-ads" // Assets/SkySDK/LauncherSDK/Editor/LauncherSdkDependencies.xml:23
+        }
+        maven {
+            url "https://cboost.jfrog.io/artifactory/chartboost-mediation" // Assets/SkySDK/LauncherSDK/Editor/LauncherSdkDependencies.xml:23
+        }
+        maven {
+            url "https://cboost.jfrog.io/artifactory/chartboost-core" // Assets/SkySDK/LauncherSDK/Editor/LauncherSdkDependencies.xml:23
+        }
+        maven {
+            url "https://maven.gameanalytics.com/release" // Assets/SkySDK/LauncherSDK/Editor/LauncherSdkDependencies.xml:23
+        }
+        maven {
+            url "https://maven-android.solar-engine.com/repository/se_sdk_for_android/" // Assets/SkySDK/LauncherSDK/Editor/LauncherSdkDependencies.xml:23
+        }
+        maven {
+            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" // Assets/SkySDK/LauncherSDK/Editor/LauncherSdkDependencies.xml:23
+        }
+        mavenLocal()
+// Android Resolver Repos End
+        flatDir {
+            dirs "${project(':unityLibrary').projectDir}/libs"
+        }
+    }
+}

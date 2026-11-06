@@ -1,0 +1,3 @@
+[submodule "Assets/SkySDKrepo"]
+	path = Assets/SkySDKrepo
+	url = https://github.com/th-tom/Sdk.git
